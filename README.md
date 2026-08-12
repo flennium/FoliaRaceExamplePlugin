@@ -13,7 +13,7 @@ This is a small standalone Folia plugin that uses the published FoliaRace artifa
 - the async scheduler path, kept disabled by default;
 - an explicit `FoliaRaceObservations` call before each demonstrated access.
 
-The normal configuration is safe. `run-unsafe-examples: true` enables one deliberately incorrect async access so the detector and report path can be inspected. Do not enable it in production.
+The normal configuration is safe. `run-unsafe-examples: true` enables deliberately incorrect cross-region and async accesses so the ownership detectors and report path can be inspected. Do not enable it in production.
 
 ## Build and package consumption
 

@@ -34,10 +34,6 @@ public final class ExamplePlugin extends JavaPlugin {
 
         Bukkit.getRegionScheduler().run(this, location, task -> runRegionChecks(location));
         Bukkit.getGlobalRegionScheduler().run(this, task -> runGlobalChecks());
-
-        if (getConfig().getBoolean("run-unsafe-examples", false)) {
-            Bukkit.getAsyncScheduler().runDelayed(this, task -> runAsyncExamples(location), 2, TimeUnit.SECONDS);
-        }
     }
 
     private void runRegionChecks(Location location) {
@@ -50,7 +46,17 @@ public final class ExamplePlugin extends JavaPlugin {
                 + " ownershipCheckAvailable=" + receipt.ownershipCheckAvailable());
 
         Collection<Entity> entities = location.getWorld().getNearbyEntities(location, 8, 8, 8);
-        entities.stream().findFirst().ifPresent(this::runEntityChecks);
+        Entity entity = entities.stream().findFirst().orElse(null);
+        if (entity != null) {
+            runEntityChecks(entity);
+        }
+
+        if (getConfig().getBoolean("run-unsafe-examples", false)) {
+            Location distant = location.clone().add(1024, 0, 1024);
+            Bukkit.getRegionScheduler().run(this, location, task -> runCrossRegionExample(distant));
+            Bukkit.getAsyncScheduler().runDelayed(
+                    this, task -> runAsyncExamples(location, entity), 2, TimeUnit.SECONDS);
+        }
     }
 
     private void runEntityChecks(Entity entity) {
@@ -83,11 +89,25 @@ public final class ExamplePlugin extends JavaPlugin {
                 + " inventoryAccepted=" + inventoryReceipt.accepted());
     }
 
-    private void runAsyncExamples(Location location) {
+    private void runCrossRegionExample(Location distant) {
+        ObservationReceipt receipt = FoliaRaceObservations.observeLocationAccess(
+                this, distant, OperationCategory.BLOCK_ACCESS);
+        String blockType = distant.getBlock().getType().name();
+        getLogger().warning("Unsafe cross-region example observed block=" + blockType
+                + " accepted=" + receipt.accepted());
+    }
+
+    private void runAsyncExamples(Location location, Entity entity) {
+        if (entity != null) {
+            ObservationReceipt receipt = FoliaRaceObservations.observeEntityAccess(
+                    this, entity, OperationCategory.ENTITY_ACCESS);
+            getLogger().warning("Unsafe async example observed entity=" + entity.getType()
+                    + " accepted=" + receipt.accepted());
+            return;
+        }
+
         ObservationReceipt receipt = FoliaRaceObservations.observeLocationAccess(
                 this, location, OperationCategory.WORLD_GLOBAL_ACCESS);
-
-        // This block intentionally runs outside a region context when enabled in config.
         String worldName = Objects.requireNonNull(location.getWorld()).getName();
         getLogger().warning("Unsafe async example observed world=" + worldName
                 + " accepted=" + receipt.accepted());
