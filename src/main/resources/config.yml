@@ -1,0 +1,5 @@
+world: world
+x: 0.0
+y: 80.0
+z: 0.0
+run-unsafe-examples: false
