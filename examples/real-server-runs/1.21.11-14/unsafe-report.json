@@ -1,0 +1,294 @@
+{
+  "schemaVersion" : "1",
+  "sessionId" : "b632a74c-d812-40e4-8601-f848492649e5",
+  "sessionLabel" : "startup",
+  "generatedAt" : 1786583361.743790700,
+  "status" : "stopped",
+  "runtime" : {
+    "platform" : "Folia",
+    "runtimeVersion" : "1.21.11-R0.1-SNAPSHOT",
+    "javaVersion" : "25.0.3",
+    "adapterVersion" : "0.2.0",
+    "coverageStatus" : "supported: supported 1.21 API line",
+    "compatibilityStatus" : "SUPPORTED",
+    "compatibilityProfile" : "folia-1.21.11",
+    "compatibilityReason" : "supported 1.21 API line",
+    "capabilities" : [ "REGION_SCHEDULER", "ENTITY_OWNERSHIP_CHECK", "REGION_OWNERSHIP_CHECK", "GLOBAL_SCHEDULER", "RUNTIME_IDENTITY", "ENTITY_SCHEDULER", "ASYNC_SCHEDULER" ]
+  },
+  "findings" : [ {
+    "representative" : {
+      "fingerprint" : {
+        "value" : "d7ac963156c680ac88af684e0caabff4a14082b9debcfe734bae91d54e6d9115"
+      },
+      "detectorId" : "async-server-state-access",
+      "detectorVersion" : "1",
+      "severity" : "HIGH",
+      "confidence" : "PROBABLE",
+      "responsiblePlugin" : "FoliaRaceExample",
+      "originatingPlugin" : "FoliaRaceExample",
+      "operationCategory" : "BLOCK_ACCESS",
+      "summary" : "Restricted server state was accessed from an asynchronous context",
+      "explanation" : "The operation touched Folia-owned server state from an async or unmanaged plugin thread.",
+      "executionContext" : "PLUGIN_THREAD:",
+      "targetOwnership" : "",
+      "targetType" : "UNKNOWN",
+      "callSite" : "jdk.proxy2.$Proxy108#accept",
+      "submissionSite" : "jdk.proxy2.$Proxy108#accept",
+      "observedAt" : 1786583356.499529900,
+      "remediation" : "REVIEW_THREAD_SAFETY",
+      "limitation" : "Execution context was classified from runtime evidence; verify the operation's documented thread-safety."
+    },
+    "firstObservedAt" : 1786583356.499529900,
+    "lastObservedAt" : 1786583356.656957000,
+    "occurrenceCount" : 5,
+    "suppressed" : false,
+    "suppressionReason" : ""
+  }, {
+    "representative" : {
+      "fingerprint" : {
+        "value" : "72423cc5bc24a9877645a27d5bf979a62ececad3de7db56ad6bb0433879e2436"
+      },
+      "detectorId" : "async-server-state-access",
+      "detectorVersion" : "1",
+      "severity" : "HIGH",
+      "confidence" : "PROBABLE",
+      "responsiblePlugin" : "FoliaRaceExample",
+      "originatingPlugin" : "FoliaRaceExample",
+      "operationCategory" : "BLOCK_ACCESS",
+      "summary" : "Restricted server state was accessed from an asynchronous context",
+      "explanation" : "The operation touched Folia-owned server state from an async or unmanaged plugin thread.",
+      "executionContext" : "PLUGIN_THREAD:",
+      "targetOwnership" : "",
+      "targetType" : "UNKNOWN",
+      "callSite" : "com.example.foliarace.ExamplePlugin#runRegionChecks",
+      "submissionSite" : "com.example.foliarace.ExamplePlugin#runRegionChecks",
+      "observedAt" : 1786583356.499529900,
+      "remediation" : "REVIEW_THREAD_SAFETY",
+      "limitation" : "Execution context was classified from runtime evidence; verify the operation's documented thread-safety."
+    },
+    "firstObservedAt" : 1786583356.499529900,
+    "lastObservedAt" : 1786583356.499529900,
+    "occurrenceCount" : 1,
+    "suppressed" : false,
+    "suppressionReason" : ""
+  }, {
+    "representative" : {
+      "fingerprint" : {
+        "value" : "8528a7137b6e3dd44d18c16099eff454ddffa892eee70807a4f129a217d7fc44"
+      },
+      "detectorId" : "async-server-state-access",
+      "detectorVersion" : "1",
+      "severity" : "HIGH",
+      "confidence" : "PROBABLE",
+      "responsiblePlugin" : "FoliaRaceExample",
+      "originatingPlugin" : "FoliaRaceExample",
+      "operationCategory" : "SERVER_GLOBAL_ACCESS",
+      "summary" : "Restricted server state was accessed from an asynchronous context",
+      "explanation" : "The operation touched Folia-owned server state from an async or unmanaged plugin thread.",
+      "executionContext" : "PLUGIN_THREAD:",
+      "targetOwnership" : "",
+      "targetType" : "UNKNOWN",
+      "callSite" : "jdk.proxy2.$Proxy108#accept",
+      "submissionSite" : "jdk.proxy2.$Proxy108#accept",
+      "observedAt" : 1786583356.533536800,
+      "remediation" : "REVIEW_THREAD_SAFETY",
+      "limitation" : "Execution context was classified from runtime evidence; verify the operation's documented thread-safety."
+    },
+    "firstObservedAt" : 1786583356.533536800,
+    "lastObservedAt" : 1786583356.551413500,
+    "occurrenceCount" : 4,
+    "suppressed" : false,
+    "suppressionReason" : ""
+  }, {
+    "representative" : {
+      "fingerprint" : {
+        "value" : "937ab2f7c505baa744c9a16680b090dda891d92fbd6552351c45c92be2a43915"
+      },
+      "detectorId" : "async-server-state-access",
+      "detectorVersion" : "1",
+      "severity" : "HIGH",
+      "confidence" : "PROBABLE",
+      "responsiblePlugin" : "FoliaRaceExample",
+      "originatingPlugin" : "FoliaRaceExample",
+      "operationCategory" : "CHUNK_ACCESS",
+      "summary" : "Restricted server state was accessed from an asynchronous context",
+      "explanation" : "The operation touched Folia-owned server state from an async or unmanaged plugin thread.",
+      "executionContext" : "PLUGIN_THREAD:",
+      "targetOwnership" : "",
+      "targetType" : "UNKNOWN",
+      "callSite" : "jdk.proxy2.$Proxy108#accept",
+      "submissionSite" : "jdk.proxy2.$Proxy108#accept",
+      "observedAt" : 1786583356.549906200,
+      "remediation" : "REVIEW_THREAD_SAFETY",
+      "limitation" : "Execution context was classified from runtime evidence; verify the operation's documented thread-safety."
+    },
+    "firstObservedAt" : 1786583356.549906200,
+    "lastObservedAt" : 1786583356.551413500,
+    "occurrenceCount" : 3,
+    "suppressed" : false,
+    "suppressionReason" : ""
+  }, {
+    "representative" : {
+      "fingerprint" : {
+        "value" : "e77ee82564973a0a6474459bd5d6fa82e469a47a029dca6ccc7fb9b281cb3e20"
+      },
+      "detectorId" : "cross-region-ownership",
+      "detectorVersion" : "1",
+      "severity" : "HIGH",
+      "confidence" : "CONFIRMED",
+      "responsiblePlugin" : "FoliaRaceExample",
+      "originatingPlugin" : "FoliaRaceExample",
+      "operationCategory" : "BLOCK_ACCESS",
+      "summary" : "Region-owned state is not owned by the current region context",
+      "explanation" : "Folia's authoritative ownership check reported that the current execution context does not own the target. The target region identity was not exposed by the runtime API.",
+      "executionContext" : "PLUGIN_THREAD:",
+      "targetOwnership" : "",
+      "targetType" : "UNKNOWN",
+      "callSite" : "com.example.foliarace.ExamplePlugin#runCrossRegionExample",
+      "submissionSite" : "com.example.foliarace.ExamplePlugin#runCrossRegionExample",
+      "observedAt" : 1786583356.656957000,
+      "remediation" : "USE_REGION_SCHEDULER",
+      "limitation" : "The runtime confirmed a mismatch but did not expose the target region identity."
+    },
+    "firstObservedAt" : 1786583356.656957000,
+    "lastObservedAt" : 1786583356.656957000,
+    "occurrenceCount" : 1,
+    "suppressed" : false,
+    "suppressionReason" : ""
+  }, {
+    "representative" : {
+      "fingerprint" : {
+        "value" : "77da0de3f8f4b9ef1e4419787f26170fdbb168ca4e4d2454b342b9572b32d33f"
+      },
+      "detectorId" : "cross-region-ownership",
+      "detectorVersion" : "1",
+      "severity" : "HIGH",
+      "confidence" : "CONFIRMED",
+      "responsiblePlugin" : "FoliaRaceExample",
+      "originatingPlugin" : "FoliaRaceExample",
+      "operationCategory" : "BLOCK_ACCESS",
+      "summary" : "Region-owned state is not owned by the current region context",
+      "explanation" : "Folia's authoritative ownership check reported that the current execution context does not own the target. The target region identity was not exposed by the runtime API.",
+      "executionContext" : "PLUGIN_THREAD:",
+      "targetOwnership" : "",
+      "targetType" : "UNKNOWN",
+      "callSite" : "jdk.proxy2.$Proxy108#accept",
+      "submissionSite" : "jdk.proxy2.$Proxy108#accept",
+      "observedAt" : 1786583356.656957000,
+      "remediation" : "USE_REGION_SCHEDULER",
+      "limitation" : "The runtime confirmed a mismatch but did not expose the target region identity."
+    },
+    "firstObservedAt" : 1786583356.656957000,
+    "lastObservedAt" : 1786583356.656957000,
+    "occurrenceCount" : 2,
+    "suppressed" : false,
+    "suppressionReason" : ""
+  }, {
+    "representative" : {
+      "fingerprint" : {
+        "value" : "f644fca5f05bbd63854a34c038e85ad72694d2a446cdf00c7ae9e80b2e3d8673"
+      },
+      "detectorId" : "async-server-state-access",
+      "detectorVersion" : "1",
+      "severity" : "HIGH",
+      "confidence" : "PROBABLE",
+      "responsiblePlugin" : "FoliaRaceExample",
+      "originatingPlugin" : "FoliaRaceExample",
+      "operationCategory" : "BLOCK_ACCESS",
+      "summary" : "Restricted server state was accessed from an asynchronous context",
+      "explanation" : "The operation touched Folia-owned server state from an async or unmanaged plugin thread.",
+      "executionContext" : "PLUGIN_THREAD:",
+      "targetOwnership" : "",
+      "targetType" : "UNKNOWN",
+      "callSite" : "com.example.foliarace.ExamplePlugin#runCrossRegionExample",
+      "submissionSite" : "com.example.foliarace.ExamplePlugin#runCrossRegionExample",
+      "observedAt" : 1786583356.656957000,
+      "remediation" : "REVIEW_THREAD_SAFETY",
+      "limitation" : "Execution context was classified from runtime evidence; verify the operation's documented thread-safety."
+    },
+    "firstObservedAt" : 1786583356.656957000,
+    "lastObservedAt" : 1786583356.656957000,
+    "occurrenceCount" : 1,
+    "suppressed" : false,
+    "suppressionReason" : ""
+  }, {
+    "representative" : {
+      "fingerprint" : {
+        "value" : "1fd41b0c6dc3289debd28f5ef41cd1a2433b770323f949ae2d41e13b2845c745"
+      },
+      "detectorId" : "cross-region-ownership",
+      "detectorVersion" : "1",
+      "severity" : "HIGH",
+      "confidence" : "CONFIRMED",
+      "responsiblePlugin" : "FoliaRaceExample",
+      "originatingPlugin" : "FoliaRaceExample",
+      "operationCategory" : "WORLD_GLOBAL_ACCESS",
+      "summary" : "Region-owned state is not owned by the current region context",
+      "explanation" : "Folia's authoritative ownership check reported that the current execution context does not own the target. The target region identity was not exposed by the runtime API.",
+      "executionContext" : "ASYNC:",
+      "targetOwnership" : "",
+      "targetType" : "UNKNOWN",
+      "callSite" : "com.example.foliarace.ExamplePlugin#runAsyncExamples",
+      "submissionSite" : "com.example.foliarace.ExamplePlugin#runAsyncExamples",
+      "observedAt" : 1786583358.574839000,
+      "remediation" : "USE_REGION_SCHEDULER",
+      "limitation" : "The runtime confirmed a mismatch but did not expose the target region identity."
+    },
+    "firstObservedAt" : 1786583358.574839000,
+    "lastObservedAt" : 1786583358.574839000,
+    "occurrenceCount" : 1,
+    "suppressed" : false,
+    "suppressionReason" : ""
+  }, {
+    "representative" : {
+      "fingerprint" : {
+        "value" : "0dcbb3a30529d941ca452a831d7eae4e888966c33f7cc756cc18794f406357e5"
+      },
+      "detectorId" : "async-server-state-access",
+      "detectorVersion" : "1",
+      "severity" : "HIGH",
+      "confidence" : "PROBABLE",
+      "responsiblePlugin" : "FoliaRaceExample",
+      "originatingPlugin" : "FoliaRaceExample",
+      "operationCategory" : "WORLD_GLOBAL_ACCESS",
+      "summary" : "Restricted server state was accessed from an asynchronous context",
+      "explanation" : "The operation touched Folia-owned server state from an async or unmanaged plugin thread.",
+      "executionContext" : "ASYNC:",
+      "targetOwnership" : "",
+      "targetType" : "UNKNOWN",
+      "callSite" : "com.example.foliarace.ExamplePlugin#runAsyncExamples",
+      "submissionSite" : "com.example.foliarace.ExamplePlugin#runAsyncExamples",
+      "observedAt" : 1786583358.574839000,
+      "remediation" : "REVIEW_THREAD_SAFETY",
+      "limitation" : "Execution context was classified from runtime evidence; verify the operation's documented thread-safety."
+    },
+    "firstObservedAt" : 1786583358.574839000,
+    "lastObservedAt" : 1786583358.574839000,
+    "occurrenceCount" : 1,
+    "suppressed" : false,
+    "suppressionReason" : ""
+  } ],
+  "health" : {
+    "droppedObservations" : 0,
+    "sessionStartedAt" : "2026-08-13T01:09:09.456504Z",
+    "instrumentationInstalled" : true,
+    "instrumentationReason" : "instrumentation sink rejected an event",
+    "baselinePresent" : false,
+    "instrumentationDroppedEvents" : 374,
+    "suppressionCount" : 0,
+    "pendingObservations" : 0,
+    "instrumentationTransformationFailures" : 0,
+    "ruleFailures" : 0,
+    "instrumentationBridgeFailures" : 1,
+    "instrumentationTransformedTargets" : 7,
+    "ciStatus" : "FINDINGS_DETECTED",
+    "instrumentationRequired" : false,
+    "sessionStoppedAt" : "2026-08-13T01:09:21.703760700Z",
+    "ciMode" : false,
+    "ciExitCode" : 0,
+    "baselineSchemaVersion" : "",
+    "instrumentationEmittedEvents" : 36051,
+    "coverageStatus" : "supported: supported 1.21 API line",
+    "fingerprintAlgorithm" : "2"
+  }
+}

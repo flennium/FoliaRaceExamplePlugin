@@ -1,0 +1,98 @@
+{
+  "schemaVersion" : "1",
+  "sessionId" : "1ac96f23-1483-4a7f-b6de-2d538fb3b396",
+  "sessionLabel" : "startup",
+  "generatedAt" : 1786583266.730614200,
+  "status" : "stopped",
+  "runtime" : {
+    "platform" : "Folia",
+    "runtimeVersion" : "1.21.6-R0.1-SNAPSHOT",
+    "javaVersion" : "25.0.3",
+    "adapterVersion" : "0.2.0",
+    "coverageStatus" : "supported: supported 1.21 API line",
+    "compatibilityStatus" : "SUPPORTED",
+    "compatibilityProfile" : "folia-1.21.6",
+    "compatibilityReason" : "supported 1.21 API line",
+    "capabilities" : [ "RUNTIME_IDENTITY", "REGION_SCHEDULER", "ENTITY_SCHEDULER", "ASYNC_SCHEDULER", "GLOBAL_SCHEDULER", "ENTITY_OWNERSHIP_CHECK", "REGION_OWNERSHIP_CHECK" ]
+  },
+  "findings" : [ {
+    "representative" : {
+      "fingerprint" : {
+        "value" : "1fd41b0c6dc3289debd28f5ef41cd1a2433b770323f949ae2d41e13b2845c745"
+      },
+      "detectorId" : "cross-region-ownership",
+      "detectorVersion" : "1",
+      "severity" : "HIGH",
+      "confidence" : "CONFIRMED",
+      "responsiblePlugin" : "FoliaRaceExample",
+      "originatingPlugin" : "FoliaRaceExample",
+      "operationCategory" : "WORLD_GLOBAL_ACCESS",
+      "summary" : "Region-owned state is not owned by the current region context",
+      "explanation" : "Folia's authoritative ownership check reported that the current execution context does not own the target. The target region identity was not exposed by the runtime API.",
+      "executionContext" : "ASYNC:",
+      "targetOwnership" : "",
+      "targetType" : "UNKNOWN",
+      "callSite" : "com.example.foliarace.ExamplePlugin#runAsyncExamples",
+      "submissionSite" : "com.example.foliarace.ExamplePlugin#runAsyncExamples",
+      "observedAt" : 1786583263.551004100,
+      "remediation" : "USE_REGION_SCHEDULER",
+      "limitation" : "The runtime confirmed a mismatch but did not expose the target region identity."
+    },
+    "firstObservedAt" : 1786583263.551004100,
+    "lastObservedAt" : 1786583263.551004100,
+    "occurrenceCount" : 1,
+    "suppressed" : false,
+    "suppressionReason" : ""
+  }, {
+    "representative" : {
+      "fingerprint" : {
+        "value" : "0dcbb3a30529d941ca452a831d7eae4e888966c33f7cc756cc18794f406357e5"
+      },
+      "detectorId" : "async-server-state-access",
+      "detectorVersion" : "1",
+      "severity" : "HIGH",
+      "confidence" : "PROBABLE",
+      "responsiblePlugin" : "FoliaRaceExample",
+      "originatingPlugin" : "FoliaRaceExample",
+      "operationCategory" : "WORLD_GLOBAL_ACCESS",
+      "summary" : "Restricted server state was accessed from an asynchronous context",
+      "explanation" : "The operation touched Folia-owned server state from an async or unmanaged plugin thread.",
+      "executionContext" : "ASYNC:",
+      "targetOwnership" : "",
+      "targetType" : "UNKNOWN",
+      "callSite" : "com.example.foliarace.ExamplePlugin#runAsyncExamples",
+      "submissionSite" : "com.example.foliarace.ExamplePlugin#runAsyncExamples",
+      "observedAt" : 1786583263.551004100,
+      "remediation" : "REVIEW_THREAD_SAFETY",
+      "limitation" : "Execution context was classified from runtime evidence; verify the operation's documented thread-safety."
+    },
+    "firstObservedAt" : 1786583263.551004100,
+    "lastObservedAt" : 1786583263.551004100,
+    "occurrenceCount" : 1,
+    "suppressed" : false,
+    "suppressionReason" : ""
+  } ],
+  "health" : {
+    "fingerprintAlgorithm" : "2",
+    "coverageStatus" : "supported: supported 1.21 API line",
+    "instrumentationEmittedEvents" : 37121,
+    "baselineSchemaVersion" : "",
+    "ciExitCode" : 0,
+    "ciMode" : false,
+    "sessionStoppedAt" : "2026-08-13T01:07:46.665035200Z",
+    "instrumentationRequired" : false,
+    "ciStatus" : "FINDINGS_DETECTED",
+    "instrumentationTransformedTargets" : 7,
+    "instrumentationBridgeFailures" : 2,
+    "ruleFailures" : 0,
+    "instrumentationTransformationFailures" : 0,
+    "pendingObservations" : 0,
+    "suppressionCount" : 0,
+    "instrumentationDroppedEvents" : 339,
+    "baselinePresent" : false,
+    "instrumentationReason" : "instrumentation sink rejected an event",
+    "instrumentationInstalled" : true,
+    "sessionStartedAt" : "2026-08-13T01:07:32.278965900Z",
+    "droppedObservations" : 0
+  }
+}

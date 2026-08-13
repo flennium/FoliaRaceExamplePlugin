@@ -1,0 +1,154 @@
+{
+  "schemaVersion" : "1",
+  "sessionId" : "7d25b68f-6cb3-43b6-98e5-cebd967fbdd2",
+  "sessionLabel" : "startup",
+  "generatedAt" : 1786583313.337592000,
+  "status" : "stopped",
+  "runtime" : {
+    "platform" : "Folia",
+    "runtimeVersion" : "1.21.8-R0.1-SNAPSHOT",
+    "javaVersion" : "25.0.3",
+    "adapterVersion" : "0.2.0",
+    "coverageStatus" : "supported: supported 1.21 API line",
+    "compatibilityStatus" : "SUPPORTED",
+    "compatibilityProfile" : "folia-1.21.8",
+    "compatibilityReason" : "supported 1.21 API line",
+    "capabilities" : [ "ASYNC_SCHEDULER", "REGION_OWNERSHIP_CHECK", "RUNTIME_IDENTITY", "GLOBAL_SCHEDULER", "REGION_SCHEDULER", "ENTITY_SCHEDULER", "ENTITY_OWNERSHIP_CHECK" ]
+  },
+  "findings" : [ {
+    "representative" : {
+      "fingerprint" : {
+        "value" : "e2ad4963e020b635dd4d73637e0b262f4dde64bcf8180feea5d8420ee9351bfe"
+      },
+      "detectorId" : "cross-region-ownership",
+      "detectorVersion" : "1",
+      "severity" : "HIGH",
+      "confidence" : "CONFIRMED",
+      "responsiblePlugin" : "FoliaRaceExample",
+      "originatingPlugin" : "FoliaRaceExample",
+      "operationCategory" : "BLOCK_ACCESS",
+      "summary" : "Region-owned state is not owned by the current region context",
+      "explanation" : "Folia's authoritative ownership check reported that the current execution context does not own the target. The target region identity was not exposed by the runtime API.",
+      "executionContext" : "UNKNOWN:",
+      "targetOwnership" : "",
+      "targetType" : "UNKNOWN",
+      "callSite" : "com.example.foliarace.ExamplePlugin#runCrossRegionExample",
+      "submissionSite" : "com.example.foliarace.ExamplePlugin#runCrossRegionExample",
+      "observedAt" : 1786583308.569049500,
+      "remediation" : "USE_REGION_SCHEDULER",
+      "limitation" : "The runtime confirmed a mismatch but did not expose the target region identity."
+    },
+    "firstObservedAt" : 1786583308.569049500,
+    "lastObservedAt" : 1786583308.569049500,
+    "occurrenceCount" : 1,
+    "suppressed" : false,
+    "suppressionReason" : ""
+  }, {
+    "representative" : {
+      "fingerprint" : {
+        "value" : "fb9827fe1185c68ed22160e2fa53d0f0c5157fbed578e7220aeb8576052b3f39"
+      },
+      "detectorId" : "cross-region-ownership",
+      "detectorVersion" : "1",
+      "severity" : "HIGH",
+      "confidence" : "CONFIRMED",
+      "responsiblePlugin" : "FoliaRaceExample",
+      "originatingPlugin" : "FoliaRaceExample",
+      "operationCategory" : "BLOCK_ACCESS",
+      "summary" : "Region-owned state is not owned by the current region context",
+      "explanation" : "Folia's authoritative ownership check reported that the current execution context does not own the target. The target region identity was not exposed by the runtime API.",
+      "executionContext" : "UNKNOWN:",
+      "targetOwnership" : "",
+      "targetType" : "UNKNOWN",
+      "callSite" : "jdk.proxy2.$Proxy110#accept",
+      "submissionSite" : "jdk.proxy2.$Proxy110#accept",
+      "observedAt" : 1786583308.570583500,
+      "remediation" : "USE_REGION_SCHEDULER",
+      "limitation" : "The runtime confirmed a mismatch but did not expose the target region identity."
+    },
+    "firstObservedAt" : 1786583308.570583500,
+    "lastObservedAt" : 1786583308.570583500,
+    "occurrenceCount" : 3,
+    "suppressed" : false,
+    "suppressionReason" : ""
+  }, {
+    "representative" : {
+      "fingerprint" : {
+        "value" : "1fd41b0c6dc3289debd28f5ef41cd1a2433b770323f949ae2d41e13b2845c745"
+      },
+      "detectorId" : "cross-region-ownership",
+      "detectorVersion" : "1",
+      "severity" : "HIGH",
+      "confidence" : "CONFIRMED",
+      "responsiblePlugin" : "FoliaRaceExample",
+      "originatingPlugin" : "FoliaRaceExample",
+      "operationCategory" : "WORLD_GLOBAL_ACCESS",
+      "summary" : "Region-owned state is not owned by the current region context",
+      "explanation" : "Folia's authoritative ownership check reported that the current execution context does not own the target. The target region identity was not exposed by the runtime API.",
+      "executionContext" : "ASYNC:",
+      "targetOwnership" : "",
+      "targetType" : "UNKNOWN",
+      "callSite" : "com.example.foliarace.ExamplePlugin#runAsyncExamples",
+      "submissionSite" : "com.example.foliarace.ExamplePlugin#runAsyncExamples",
+      "observedAt" : 1786583310.172748700,
+      "remediation" : "USE_REGION_SCHEDULER",
+      "limitation" : "The runtime confirmed a mismatch but did not expose the target region identity."
+    },
+    "firstObservedAt" : 1786583310.172748700,
+    "lastObservedAt" : 1786583310.172748700,
+    "occurrenceCount" : 1,
+    "suppressed" : false,
+    "suppressionReason" : ""
+  }, {
+    "representative" : {
+      "fingerprint" : {
+        "value" : "0dcbb3a30529d941ca452a831d7eae4e888966c33f7cc756cc18794f406357e5"
+      },
+      "detectorId" : "async-server-state-access",
+      "detectorVersion" : "1",
+      "severity" : "HIGH",
+      "confidence" : "PROBABLE",
+      "responsiblePlugin" : "FoliaRaceExample",
+      "originatingPlugin" : "FoliaRaceExample",
+      "operationCategory" : "WORLD_GLOBAL_ACCESS",
+      "summary" : "Restricted server state was accessed from an asynchronous context",
+      "explanation" : "The operation touched Folia-owned server state from an async or unmanaged plugin thread.",
+      "executionContext" : "ASYNC:",
+      "targetOwnership" : "",
+      "targetType" : "UNKNOWN",
+      "callSite" : "com.example.foliarace.ExamplePlugin#runAsyncExamples",
+      "submissionSite" : "com.example.foliarace.ExamplePlugin#runAsyncExamples",
+      "observedAt" : 1786583310.172748700,
+      "remediation" : "REVIEW_THREAD_SAFETY",
+      "limitation" : "Execution context was classified from runtime evidence; verify the operation's documented thread-safety."
+    },
+    "firstObservedAt" : 1786583310.172748700,
+    "lastObservedAt" : 1786583310.172748700,
+    "occurrenceCount" : 1,
+    "suppressed" : false,
+    "suppressionReason" : ""
+  } ],
+  "health" : {
+    "suppressionCount" : 0,
+    "pendingObservations" : 0,
+    "instrumentationTransformationFailures" : 0,
+    "ruleFailures" : 0,
+    "instrumentationBridgeFailures" : 1,
+    "instrumentationTransformedTargets" : 7,
+    "ciStatus" : "FINDINGS_DETECTED",
+    "instrumentationRequired" : false,
+    "sessionStoppedAt" : "2026-08-13T01:08:33.300713500Z",
+    "ciMode" : false,
+    "ciExitCode" : 0,
+    "baselineSchemaVersion" : "",
+    "instrumentationEmittedEvents" : 36773,
+    "coverageStatus" : "supported: supported 1.21 API line",
+    "fingerprintAlgorithm" : "2",
+    "droppedObservations" : 0,
+    "sessionStartedAt" : "2026-08-13T01:08:19.480967300Z",
+    "instrumentationInstalled" : true,
+    "instrumentationReason" : "instrumentation sink rejected an event",
+    "baselinePresent" : false,
+    "instrumentationDroppedEvents" : 338
+  }
+}
