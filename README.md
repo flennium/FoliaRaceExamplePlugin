@@ -4,7 +4,7 @@ This is a small standalone Folia plugin that uses the published FoliaRace artifa
 
 ## What it demonstrates
 
-- `compileOnly("com.foliarace:foliarace-plugin:0.1.0")` in Gradle;
+- `compileOnly("com.foliarace:foliarace-plugin:0.1.1")` in Gradle;
 - `depend: [FoliaRace]` in `plugin.yml`;
 - region and global scheduler usage;
 - location/block observations;

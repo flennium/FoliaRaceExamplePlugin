@@ -38,7 +38,7 @@ java {
 
 dependencies {
     compileOnly("dev.folia:folia-api:1.21.11-R0.1-SNAPSHOT")
-    compileOnly("com.foliarace:foliarace-plugin:0.1.0")
+    compileOnly("com.foliarace:foliarace-plugin:0.1.1")
 }
 
 tasks.withType<JavaCompile>().configureEach {
